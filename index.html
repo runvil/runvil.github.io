@@ -145,7 +145,10 @@ cd hello && runvil test</pre>
 </main>
 
 <footer>
-  <p>&copy; 2026 Runvil Contributors &middot; MIT License</p>
+  <p>&copy; <span id="year">2026</span> Runvil Contributors &middot; MIT License</p>
 </footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
