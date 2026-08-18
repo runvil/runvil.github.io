@@ -1,6 +1,6 @@
 // The Runvil ecosystem landing page, built with the web/ssg static site
 // generator: components with scoped styles, a layout with a content slot,
-// and the web theming system. Build writes the site into the repository
+// and the ui theming system. Build writes the site into the repository
 // root, which GitHub Pages serves directly.
 package main
 
@@ -10,11 +10,11 @@ import (
 	"log"
 	"os"
 
-	"github.com/runvil/framework/web"
+	"github.com/runvil/framework/ui"
 	"github.com/runvil/framework/web/ssg"
 )
 
-const favicon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b58a1'/%3E%3Cpath d='M9 22 L9 10 L13 10 L13 18 L19 18 L19 10 L23 10 L23 22 Z' fill='%23fff'/%3E%3C/svg%3E"
+const favicon = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300c853'/%3E%3Cpath d='M9 22 L9 10 L13 10 L13 18 L19 18 L19 10 L23 10 L23 22 Z' fill='%23fff'/%3E%3C/svg%3E"
 
 // Repo is one ecosystem repository shown in the repositories grid.
 type Repo struct {
@@ -28,7 +28,7 @@ type SiteData struct {
 	Title       string
 	Description string
 	Tagline     string
-	Theme       *web.Theme
+	Theme       *ui.Theme
 	Features    []template.HTML
 	Repos       []Repo
 	Snippet     string
@@ -160,6 +160,7 @@ func buildSite() *ssg.Site {
 <title>{{.Title}}</title>
 <link rel="icon" href="` + favicon + `">
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/theme.css">
 {{if .Data.Theme}}{{.Data.Theme.Script}}{{end}}
 </head>
 <body>
@@ -179,10 +180,7 @@ func buildSite() *ssg.Site {
   --accent: var(--primary);
   --accent-soft: var(--ghost);
   --rule: var(--neutral);
-  --show-sun: block;
-  --show-moon: none;
 }
-:root[data-theme="dark"] { --show-sun: none; --show-moon: block; }
 * { box-sizing: border-box; }
 body { margin: 0; font: 17px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--bg); transition: background-color .2s ease, color .2s ease; }
 a { color: var(--accent); }
@@ -195,13 +193,9 @@ ul.features li { margin: .45rem 0; }
 .cta { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
 .cta a { display: inline-block; padding: .7rem 1.5rem; border-radius: 999px; text-decoration: none; font-weight: 700; }
 .cta a.primary { background: var(--primary); color: var(--primary-content); }
-.cta a.secondary { border: 1px solid var(--neutral); color: var(--ink); }
-.theme-toggle { border: 1px solid var(--neutral); border-radius: 999px; background: transparent; color: var(--ink); padding: .35rem .5rem; line-height: 0; cursor: pointer; transition: border-color .2s ease, color .2s ease; }
-.theme-toggle:hover { border-color: var(--primary); color: var(--primary); }
-.theme-toggle svg { width: 1.05rem; height: 1.05rem; display: block; }
-.theme-toggle .icon-sun { display: var(--show-sun); }
-.theme-toggle .icon-moon { display: var(--show-moon); }`,
+.cta a.secondary { border: 1px solid var(--neutral); color: var(--ink); }`,
 		}).
+		Asset("assets/theme.css", ui.ThemeModeVarsCSS+"\n"+ui.ThemeToggleCSS).
 		Page(ssg.Page{Path: "/", Title: data.Title, Layout: "site", Root: "home", Data: data}).
 		Page(ssg.Page{Path: "/404.html", Title: "404 — " + data.Title, Layout: "site", Root: "notfound", Data: data})
 }
@@ -211,7 +205,7 @@ func siteData() SiteData {
 		Title:       "Runvil — A Meta-Framework Written in Go",
 		Description: "Runvil composes modules sourced across multiple ecosystems into one cohesive, high-performance foundation for building applications in Go.",
 		Tagline:     "Runvil composes modules sourced across multiple ecosystems and repositories into one cohesive, high-performance foundation for building web services, CLI tools, background workers, and desktop applications.",
-		Theme:       &web.Theme{},
+		Theme:       &ui.Theme{},
 		Features: []template.HTML{
 			template.HTML(`<strong>Meta-framework by design</strong> — integrates what other ecosystems do well instead of re-implementing it.`),
 			template.HTML(`<strong>Stdlib-first</strong> — argument parsing, logging, and configuration come from the Go standard library.`),

@@ -1,4 +1,6 @@
 github.com/runvil/framework v0.4.2 h1:N8RqVX5oc1b1R5bawstSDRpatdNh198iaVEXJavRgFs=
 github.com/runvil/framework v0.4.2/go.mod h1:dTPMmMGtInw9pvPHC07n7xidK7ZIW/uSQtzoBlN1o/Q=
+github.com/runvil/framework v0.5.1 h1:zlnWXkQ6LPAGoRhQc5SXBumZ3NqT3Iw3RIyT3GJ6Ly8=
+github.com/runvil/framework v0.5.1/go.mod h1:dTPMmMGtInw9pvPHC07n7xidK7ZIW/uSQtzoBlN1o/Q=
 golang.org/x/net v0.30.0 h1:AcW1SDZMkb8IpzCdQUaIq2sP4sZ4zw+55h6ynffypl4=
 golang.org/x/net v0.30.0/go.mod h1:2wGyMJ5iFasEhkwi13ChkO/t1ECNC4X4eBKkVFyYFlU=
