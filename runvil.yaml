@@ -54,6 +54,7 @@ ssg:
   components:
     - name: Landing
       body: |
+          <div class="landing">
           <section class="hero">
             <div class="hero-glow"></div>
             <div class="hero-inner">
@@ -269,6 +270,7 @@ ssg:
               </div>
             </div>
           </section>
+          </div>
       style: |
         /* ── Hero ─────────────────────────────────────── */
         .hero {
