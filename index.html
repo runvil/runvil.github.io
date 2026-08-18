@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runvil — A Meta-Framework Written in Go</title>
+<meta name="description" content="Runvil composes modules sourced across multiple ecosystems into one cohesive, high-performance foundation for building applications in Go.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b58a1'/%3E%3Cpath d='M9 22 L9 10 L13 10 L13 18 L19 18 L19 10 L23 10 L23 22 Z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fdfdfb;
+    --ink: #1a1a1a;
+    --muted: #666;
+    --accent: #0b58a1;
+    --accent-soft: rgba(11, 88, 161, 0.10);
+    --rule: #e3e0d8;
+    --card: #ffffff;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 17px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+  }
+  a { color: var(--accent); }
+  header.top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 1.5rem; max-width: 64rem; margin: 0 auto;
+  }
+  header.top .brand { font-weight: 800; font-size: 1.15rem; letter-spacing: .02em; }
+  header.top .brand span { color: var(--accent); }
+  header.top nav a { text-decoration: none; font-weight: 600; margin-left: 1.25rem; }
+  main { max-width: 64rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .hero { text-align: center; padding: 3rem 0 2rem; }
+  .hero h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; margin: 0 0 .6rem; }
+  .hero h1 span { color: var(--accent); }
+  .hero p.tagline { font-size: 1.2rem; color: var(--muted); max-width: 44rem; margin: 0 auto 1.8rem; }
+  .cta { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+  .cta a {
+    display: inline-block; padding: .7rem 1.5rem; border-radius: 999px;
+    text-decoration: none; font-weight: 700;
+  }
+  .cta a.primary { background: var(--accent); color: #fff; }
+  .cta a.secondary { border: 1px solid var(--rule); color: var(--ink); }
+  section { margin-top: 3.5rem; }
+  h2 { font-size: 1.5rem; margin: 0 0 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+  .card {
+    background: var(--card); border: 1px solid var(--rule); border-radius: var(--radius);
+    padding: 1.25rem; text-decoration: none; color: inherit;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  pre {
+    background: var(--accent-soft); border: 1px solid var(--rule);
+    border-radius: var(--radius); padding: 1rem 1.25rem; overflow-x: auto;
+    font: .95rem/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  ul.features { padding-left: 1.25rem; max-width: 44rem; }
+  ul.features li { margin: .45rem 0; }
+  footer {
+    max-width: 64rem; margin: 0 auto; padding: 1.5rem; color: var(--muted);
+    font-size: .9rem; border-top: 1px solid var(--rule);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17171a; --ink: #e6e4dd; --muted: #9a968b;
+      --accent: #7ab4ef; --accent-soft: rgba(122, 180, 239, 0.12);
+      --rule: #2e2e34; --card: #1e1e23;
+    }
+    .cta a.secondary { color: var(--ink); }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">Run<span>vil</span></div>
+  <nav>
+    <a href="/docs/">Documentation</a>
+    <a href="https://github.com/runvil">GitHub</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <h1>A meta-framework, <span>written in Go</span>.</h1>
+    <p class="tagline">Runvil composes modules sourced across multiple ecosystems and repositories
+    into one cohesive, high-performance foundation for building web services, CLI tools,
+    background workers, and desktop applications.</p>
+    <div class="cta">
+      <a class="primary" href="/docs/">Read the documentation</a>
+      <a class="secondary" href="https://github.com/runvil">Browse the code</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>Why Runvil</h2>
+    <ul class="features">
+      <li><strong>Meta-framework by design</strong> — integrates what other ecosystems do well instead of re-implementing it.</li>
+      <li><strong>Stdlib-first</strong> — argument parsing, logging, and configuration come from the Go standard library.</li>
+      <li><strong>Safe by design</strong> — Go's memory safety, no <code>unsafe</code>, no manual memory management.</li>
+      <li><strong>Spec-driven</strong> — every component ships with a formal specification describing requirements and conventions.</li>
+      <li><strong>Dogfooded</strong> — Runvil's own tooling and websites are built with Runvil.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Repositories</h2>
+    <div class="grid">
+      <a class="card" href="https://github.com/runvil/framework">
+        <h3>framework</h3>
+        <p>The meta-framework: integrated <code>cli</code> and <code>web</code> packages.</p>
+      </a>
+      <a class="card" href="https://github.com/runvil/libs">
+        <h3>libs</h3>
+        <p>Shared, reusable libraries: <code>core</code> and <code>term</code>.</p>
+      </a>
+      <a class="card" href="https://github.com/runvil/runvil">
+        <h3>runvil</h3>
+        <p>The developer tool for scaffolding, testing, and project information.</p>
+      </a>
+      <a class="card" href="https://github.com/runvil/mdbind">
+        <h3>mdbind</h3>
+        <p>The site builder: Markdown folders into book-shaped static websites.</p>
+      </a>
+      <a class="card" href="https://github.com/runvil/docs">
+        <h3>docs</h3>
+        <p>This ecosystem's website — <a href="/docs/">read it online</a>.</p>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Getting started</h2>
+    <p>Scaffold a new Runvil project in seconds with the developer tool.</p>
+<pre>go install github.com/runvil/runvil/cmd/runvil@v0.1.0
+runvil new hello --module example.com/hello
+cd hello && runvil test</pre>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Runvil Contributors &middot; MIT License</p>
+</footer>
+</body>
+</html>
