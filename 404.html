@@ -1,35 +1,42 @@
-<!DOCTYPE html><html lang="en" data-rv-layout="site"><head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="color-scheme" content="light dark"/>
-<meta name="description" content="Runvil composes modules sourced across multiple ecosystems into one cohesive, high-performance foundation for building applications in Go."/>
-<title>404 — Runvil — A Meta-Framework Written in Go</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 32 32&#39;%3E%3Crect width=&#39;32&#39; height=&#39;32&#39; rx=&#39;7&#39; fill=&#39;%2300c853&#39;/%3E%3Cpath d=&#39;M9 22 L9 10 L13 10 L13 18 L19 18 L19 10 L23 10 L23 22 Z&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E"/>
-<link rel="stylesheet" href="/assets/style.css"/>
-<link rel="stylesheet" href="/assets/theme.css"/>
-<style>:root{--base-1: #fdfdfb;--base-1-content: #1a1a1a;--base-2: #f5f2eb;--base-2-content: #666;--base-3: #efece4;--base-3-content: #4a4a4a;--primary: #00c853;--primary-content: #ffffff;--secondary: #4a8f7a;--secondary-content: #ffffff;--accent: #f59e0b;--accent-content: #ffffff;--ghost: #e9e6dc;--ghost-content: #666;--neutral: #e3e0d8;--neutral-content: #666;--success: #15803d;--success-content: #ffffff;--info: #0d9488;--info-content: #ffffff;--warning: #f59e0b;--warning-content: #ffffff;--error: #b91c1c;--error-content: #ffffff;}:root[data-theme="dark"]{--base-1: #17171a;--base-1-content: #e6e4dd;--base-2: #202024;--base-2-content: #9a968b;--base-3: #2a2a30;--base-3-content: #c6c2b8;--primary: #5cff8e;--primary-content: #06160d;--secondary: #7fc99d;--secondary-content: #07130b;--accent: #ffb020;--accent-content: #241a00;--ghost: #26262b;--ghost-content: #9a968b;--neutral: #2e2e34;--neutral-content: #9a968b;--success: #4ade80;--success-content: #0b1f10;--info: #2dd4bf;--info-content: #062a23;--warning: #ffb020;--warning-content: #241a00;--error: #f87171;--error-content: #260a0a;}@media (prefers-color-scheme: dark){:root:not([data-theme]){--base-1: #17171a;--base-1-content: #e6e4dd;--base-2: #202024;--base-2-content: #9a968b;--base-3: #2a2a30;--base-3-content: #c6c2b8;--primary: #5cff8e;--primary-content: #06160d;--secondary: #7fc99d;--secondary-content: #07130b;--accent: #ffb020;--accent-content: #241a00;--ghost: #26262b;--ghost-content: #9a968b;--neutral: #2e2e34;--neutral-content: #9a968b;--success: #4ade80;--success-content: #0b1f10;--info: #2dd4bf;--info-content: #062a23;--warning: #ffb020;--warning-content: #241a00;--error: #f87171;--error-content: #260a0a;}}</style><script>(function(){var k="runvil-theme",d="auto",t=d;try{t=localStorage.getItem(k)||d}catch(e){}var m=window.matchMedia('(prefers-color-scheme: dark)');function apply(){var dark=t==='dark'||(t==='auto'&&m.matches);var r=document.documentElement;r.dataset.theme=dark?'dark':'light';r.style.colorScheme=dark?'dark':'light';var meta=document.querySelector('meta[name="color-scheme"]');if(meta)meta.content=dark?'dark':'light'}apply();if(m.addEventListener){m.addEventListener('change',function(){if(t==='auto')apply()})}window.runvilTheme={get:function(){return t},set:function(x){t=x;try{localStorage.setItem(k,x)}catch(e){}apply()},toggle:function(){var dark=t==='dark'||(t==='auto'&&m.matches);window.runvilTheme.set(dark?'light':'dark')}};document.addEventListener('click',function(e){var el=e.target&&e.target.closest?e.target.closest('[data-theme-toggle]'):null;if(el)window.runvilTheme.toggle()})})();</script>
+<!DOCTYPE html><html lang="en" data-theme="auto" data-rv-layout="main"><head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <title>404 — Page Not Found</title>
+  <meta name="description" content="Simple, type-safe, and incredibly fast static sites and structured documents. Powered by Go."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Outfit:wght@500;700;800&amp;family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --max-width: 1200px;
+  --nav-height: 70px;
+  --radius-card: 14px;
+  --transition: 0.22s ease;
+}
+body { margin: 0; display: flex; flex-direction: column; min-height: 100vh; font-family: 'Inter', sans-serif; background-color: var(--base-1); color: var(--base-1-content); -webkit-font-smoothing: antialiased; }
+main[data-ui-component="main"] { flex: 1; }
+.brand-link { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--base-1-content); }
+.logo-orb { width: 1.4rem; height: 1.4rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); box-shadow: 0 0 10px rgba(92,255,142,0.35); flex-shrink: 0; }
+.logo-text { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.4rem; letter-spacing: -0.03em; }
+.github-link { padding: 0.35rem 0.8rem; border-radius: 6px; background-color: var(--base-2); border: 1px solid var(--base-3); transition: all var(--transition); }
+.github-link:hover { background-color: var(--base-3); border-color: var(--primary); }
+.footer-brand { font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--base-1-content); }
+</style>
+
+  <link rel="stylesheet" href="/assets/ui.css"/>
+  <link rel="stylesheet" href="/assets/style.css"/>
+  <style>:root{--base-1: #fdfdfb;--base-1-content: #1a1a1a;--base-2: #f5f2eb;--base-2-content: #666;--base-3: #efece4;--base-3-content: #4a4a4a;--primary: #00c853;--primary-content: #ffffff;--secondary: #4a8f7a;--secondary-content: #ffffff;--accent: #f59e0b;--accent-content: #ffffff;--ghost: #e9e6dc;--ghost-content: #666;--neutral: #e3e0d8;--neutral-content: #666;--success: #15803d;--success-content: #ffffff;--info: #0d9488;--info-content: #ffffff;--warning: #f59e0b;--warning-content: #ffffff;--error: #b91c1c;--error-content: #ffffff;}:root[data-theme="dark"]{--base-1: #17171a;--base-1-content: #e6e4dd;--base-2: #202024;--base-2-content: #9a968b;--base-3: #2a2a30;--base-3-content: #c6c2b8;--primary: #5cff8e;--primary-content: #06160d;--secondary: #7fc99d;--secondary-content: #07130b;--accent: #ffb020;--accent-content: #241a00;--ghost: #26262b;--ghost-content: #9a968b;--neutral: #2e2e34;--neutral-content: #9a968b;--success: #4ade80;--success-content: #0b1f10;--info: #2dd4bf;--info-content: #062a23;--warning: #ffb020;--warning-content: #241a00;--error: #f87171;--error-content: #260a0a;}@media (prefers-color-scheme: dark){:root:not([data-theme]){--base-1: #17171a;--base-1-content: #e6e4dd;--base-2: #202024;--base-2-content: #9a968b;--base-3: #2a2a30;--base-3-content: #c6c2b8;--primary: #5cff8e;--primary-content: #06160d;--secondary: #7fc99d;--secondary-content: #07130b;--accent: #ffb020;--accent-content: #241a00;--ghost: #26262b;--ghost-content: #9a968b;--neutral: #2e2e34;--neutral-content: #9a968b;--success: #4ade80;--success-content: #0b1f10;--info: #2dd4bf;--info-content: #062a23;--warning: #ffb020;--warning-content: #241a00;--error: #f87171;--error-content: #260a0a;}}</style><script>(function(){var k="runvil-theme",d="auto",t=d;try{t=localStorage.getItem(k)||d}catch(e){}var m=window.matchMedia('(prefers-color-scheme: dark)');function apply(){var dark=t==='dark'||(t==='auto'&&m.matches);var r=document.documentElement;r.dataset.theme=dark?'dark':'light';r.style.colorScheme=dark?'dark':'light';var meta=document.querySelector('meta[name="color-scheme"]');if(meta)meta.content=dark?'dark':'light'}apply();if(m.addEventListener){m.addEventListener('change',function(){if(t==='auto')apply()})}window.runvilTheme={get:function(){return t},set:function(x){t=x;try{localStorage.setItem(k,x)}catch(e){}apply()},toggle:function(){var dark=t==='dark'||(t==='auto'&&m.matches);window.runvilTheme.set(dark?'light':'dark')}};document.addEventListener('click',function(e){var el=e.target&&e.target.closest?e.target.closest('[data-theme-toggle]'):null;if(el)window.runvilTheme.toggle()})})();</script>
 </head>
 <body>
-<header class="top" data-rv-component="topbar">
-  <a class="brand" href="/">Run<span>vil</span></a>
-  <nav>
-    <a href="/docs/">Documentation</a>
-    <a href="https://github.com/runvil">GitHub</a>
-    <button type="button" class="theme-toggle" data-theme-toggle="" aria-label="Toggle light/dark theme" title="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg><svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button>
-  </nav>
-</header>
-<main>
-<section class="nf" data-rv-component="notfound">
-  <h1>404 — page not found</h1>
-  <p>The page you are looking for does not exist.</p>
-  <p class="cta"><a class="primary" href="/">Back home</a></p>
-</section>
+<header class="ui-header" data-ui-component="header"><div class="header-inner"><div class="header-brand"><a class="brand-link" href="/"><span class="logo-orb"></span><span class="logo-text">runvil</span></a></div><div class="header-nav"><nav class="nav" aria-label="Main navigation"><ul class="nav-list"><li class="nav-item"><a class="nav-link" href="/docs/">Documentation</a></li><li class="nav-item"><a class="nav-link github-link" href="https://github.com/runvil/runvil" target="_blank" rel="noopener">GitHub</a></li></ul></nav></div><div class="header-actions"><button type="button" class="theme-toggle" data-theme-toggle="" aria-label="Toggle light/dark theme" title="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg><svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button></div></div></header>
+<main data-ui-component="main"><div class="nf-wrap" data-rv-component="NotFound">
+  <p class="nf-code">404</p>
+  <h1 class="nf-title">Page not found</h1>
+  <p class="nf-sub">The page you are looking for does not exist or has been moved.</p>
+  <a href="/" class="btn btn-primary">Back to Home →</a>
+</div>
 </main>
-<footer data-rv-component="footer">
-  <p>© <span id="year">2026</span> Runvil Contributors · MIT License</p>
-</footer>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<footer class="ui-footer" data-ui-component="footer"><div class="footer-inner"><div class="footer-left"><span class="footer-brand">runvil</span><span>A Go Meta-Framework for static web design.</span></div><div class="footer-right">© Runvil Contributors. Licensed under MIT. · Built with <strong>runvil</strong>.</div></div></footer>
 
 </body></html>

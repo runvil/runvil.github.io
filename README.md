@@ -16,7 +16,7 @@ The build writes the generated site into the repository root, which GitHub
 Pages serves directly.
 
 ```sh
-go run ./cmd/site
+../runvil build
 # created index.html
 # created 404.html
 # created assets/style.css
@@ -25,7 +25,7 @@ go run ./cmd/site
 ## Serve locally
 
 ```sh
-go run ./cmd/site
+../runvil build
 python3 -m http.server
 # open http://localhost:8000
 ```

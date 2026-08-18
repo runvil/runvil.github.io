@@ -1,0 +1,842 @@
+title: Runvil — A Meta-Framework Written in Go
+author: Runvil Contributors
+base: /
+output: .
+theme:
+  default: auto
+
+ssg:
+  description: Simple, type-safe, and incredibly fast static sites and structured documents. Powered by Go.
+
+  layouts:
+    - name: main
+      ui:
+        description: Simple, type-safe, and incredibly fast static sites and structured documents. Powered by Go.
+        stylesheets:
+          - /assets/ui.css
+          - /assets/style.css
+        head: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+          <style>
+          :root {
+            --max-width: 1200px;
+            --nav-height: 70px;
+            --radius-card: 14px;
+            --transition: 0.22s ease;
+          }
+          body { margin: 0; display: flex; flex-direction: column; min-height: 100vh; font-family: 'Inter', sans-serif; background-color: var(--base-1); color: var(--base-1-content); -webkit-font-smoothing: antialiased; }
+          main[data-ui-component="main"] { flex: 1; }
+          .brand-link { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--base-1-content); }
+          .logo-orb { width: 1.4rem; height: 1.4rem; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); box-shadow: 0 0 10px rgba(92,255,142,0.35); flex-shrink: 0; }
+          .logo-text { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.4rem; letter-spacing: -0.03em; }
+          .github-link { padding: 0.35rem 0.8rem; border-radius: 6px; background-color: var(--base-2); border: 1px solid var(--base-3); transition: all var(--transition); }
+          .github-link:hover { background-color: var(--base-3); border-color: var(--primary); }
+          .footer-brand { font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--base-1-content); }
+          </style>
+        header:
+          brand: '<a class="brand-link" href="/"><span class="logo-orb"></span><span class="logo-text">runvil</span></a>'
+          nav:
+            links:
+              - text: Documentation
+                url: /docs/
+              - text: GitHub
+                url: https://github.com/runvil/runvil
+                target: _blank
+                rel: noopener
+                class: github-link
+          theme_toggle: true
+        footer:
+          left: '<span class="footer-brand">runvil</span><span>A Go Meta-Framework for static web design.</span>'
+          right: '&copy; Runvil Contributors. Licensed under MIT. &middot; Built with <strong>runvil</strong>.'
+
+  components:
+    - name: Landing
+      body: |
+          <section class="hero">
+            <div class="hero-glow"></div>
+            <div class="hero-inner">
+              <div class="hero-text">
+                <span class="badge"><span class="badge-dot"></span>v0.3.0 · Go Native · Open Source</span>
+                <h1 class="hero-title">Build Static Sites<br>at Go Speed.</h1>
+                <p class="hero-subtitle">Runvil is a meta-framework for building beautiful static websites and documentation books — declaratively, without reinventing the wheel.</p>
+                <div class="hero-cta">
+                  <a href="/docs/" class="btn btn-primary">Get Started &rarr;</a>
+                  <a href="https://github.com/runvil/runvil" target="_blank" rel="noopener" class="btn btn-ghost">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.008-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.577.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                    View on GitHub
+                  </a>
+                </div>
+                <div class="hero-stats">
+                  <div class="stat"><span class="stat-num">0 KB</span><span class="stat-label">JS runtime</span></div>
+                  <div class="stat"><span class="stat-num">&lt; 1s</span><span class="stat-label">median build</span></div>
+                  <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Go</span></div>
+                  <div class="stat"><span class="stat-num">MIT</span><span class="stat-label">open source</span></div>
+                </div>
+              </div>
+              <div class="hero-terminal">
+                <div class="terminal-bar">
+                  <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+                  <span class="terminal-label">bash — runvil</span>
+                </div>
+                <div class="terminal-body">
+                  <p><span class="p">$</span> go install github.com/runvil/runvil/cmd/runvil@latest</p>
+                  <p><span class="p">$</span> runvil new my-site</p>
+                  <p class="dim">  created my-site/go.mod</p>
+                  <p class="dim">  created my-site/main.go</p>
+                  <p><span class="p">$</span> cd my-site &amp;&amp; runvil build</p>
+                  <p class="ok">  ✓ created site/index.html</p>
+                  <p><span class="p">$</span> runvil serve</p>
+                  <p class="dim">  serving at http://localhost:8080</p>
+                  <p class="cursor">▊</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="social-proof">
+            <div class="section-wrap proof-inner">
+              <div class="proof-item">
+                <span class="proof-num">&lt; 1s</span>
+                <span class="proof-label">median build time</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-num">0 KB</span>
+                <span class="proof-label">JavaScript runtime</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-num">100%</span>
+                <span class="proof-label">written in Go</span>
+              </div>
+              <div class="proof-item">
+                <span class="proof-num">MIT</span>
+                <span class="proof-label">open source license</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="features">
+            <div class="section-wrap">
+              <div class="section-head">
+                <span class="section-tag">Why Runvil</span>
+                <h2>Everything you need. Nothing you don't.</h2>
+                <p>A focused toolkit built around Go's strengths — fast compilation, strong types, and zero runtime bloat.</p>
+              </div>
+              <div class="features-grid">
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                  </div>
+                  <h3>Go Native Performance</h3>
+                  <p>Compiles to pure static HTML/CSS. No JavaScript runtime, no hydration cost — just instant, accessible pages.</p>
+                  <a href="/docs/" class="feat-link">Learn more &rarr;</a>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                  </div>
+                  <h3>Declarative SSG</h3>
+                  <p>Define layouts, components, and pages declaratively in a single <code>runvil.yaml</code>. No bespoke build commands.</p>
+                  <a href="/docs/" class="feat-link">Learn more &rarr;</a>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.3-.3-.4-.5-.8-.5-1.3 0-1.1.9-2 2-2h3a5 5 0 0 0 5-5c0-4.4-4.9-8-11-8z"></path></svg>
+                  </div>
+                  <h3>Scoped CSS</h3>
+                  <p>Component styles are automatically scoped using <code>data-rv-component</code> — no style leaks, ever.</p>
+                  <a href="/docs/" class="feat-link">Learn more &rarr;</a>
+                </div>
+                <div class="feat-card">
+                  <div class="feat-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                  </div>
+                  <h3>Book Compiler</h3>
+                  <p>Turn a folder of Markdown files into a fully navigable documentation site with clean, directory-based URLs.</p>
+                  <a href="/docs/" class="feat-link">Learn more &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="showcase">
+            <div class="section-wrap showcase-inner">
+              <div class="showcase-text">
+                <span class="section-tag">Two modes · One config</span>
+                <h2>One config. Two build modes.</h2>
+                <p>Whether you're building a polished marketing page or a deep documentation hub, <code>runvil.yaml</code> is your single source of truth. The CLI detects your intent and delegates to the right engine.</p>
+                <ul class="check-list">
+                  <li>SSG mode for structured pages with layouts &amp; components</li>
+                  <li>Book mode for Markdown-driven documentation</li>
+                  <li>Unified theme system across both modes</li>
+                </ul>
+              </div>
+              <div class="showcase-codes">
+                <div class="code-card">
+                  <div class="code-card-bar"><span class="cf">runvil.yaml &middot; SSG mode</span></div>
+                  <pre class="code-body"><code>          <span class="ck">title</span>: <span class="cv">My Site</span>
+          <span class="ck">theme</span>:
+            <span class="ck">default</span>: <span class="cv">auto</span>
+
+          <span class="cc"># SSG mode: layouts + components + pages</span>
+          <span class="ck">ssg</span>:
+            <span class="ck">layouts</span>:
+              - <span class="ck">name</span>: <span class="cv">main</span>
+                <span class="ck">body</span>: <span class="cv">"&lt;html&gt;{{ .Content }}&lt;/html&gt;"</span>
+            <span class="ck">components</span>:
+              - <span class="ck">name</span>: <span class="cv">Hero</span>
+                <span class="ck">body</span>: <span class="cv">"&lt;h1&gt;Hello, Runvil!&lt;/h1&gt;"</span>
+                <span class="ck">style</span>: <span class="cv">"h1 { color: var(--primary) }"</span>
+            <span class="ck">pages</span>:
+              - <span class="ck">path</span>: <span class="cv">/</span>
+                <span class="ck">layout</span>: <span class="cv">main</span>
+                <span class="ck">root</span>: <span class="cv">Hero</span></code></pre>
+                </div>
+                <div class="code-card">
+                  <div class="code-card-bar"><span class="cf">manuscript/ &middot; Book mode</span></div>
+                  <pre class="code-body"><code>          <span class="cc"># chapters/tutorials/build-a-landing-page/</span>
+          <span class="ck">title</span>: <span class="cv">Build a Landing Page</span>
+          <span class="ck">order</span>: <span class="cv">1</span>
+
+          <span class="cc">## Install</span>
+
+          <span class="cv">runvil new my-site</span>
+
+          <span class="cc">## Build</span>
+
+          <span class="cv">cd my-site &amp;&amp; runvil build</span>
+
+          <span class="cc">## Result</span>
+
+          A full documentation hub with clean,
+          directory-based URLs.</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="compare">
+            <div class="section-wrap">
+              <div class="section-head">
+                <span class="section-tag">The Difference</span>
+                <h2>Runvil vs. the alternatives</h2>
+                <p>No node_modules, no build pipelines, no config sprawl — just Go doing what Go does best.</p>
+              </div>
+              <div class="compare-grid">
+                <div class="compare-col runvil-col">
+                  <h3>Runvil</h3>
+                  <ul>
+                    <li class="yes">One declarative <code>runvil.yaml</code></li>
+                    <li class="yes">Pure static HTML/CSS output</li>
+                    <li class="yes">Zero runtime, zero dependencies</li>
+                    <li class="yes">Single Go binary, ships fast</li>
+                  </ul>
+                </div>
+                <div class="compare-col">
+                  <h3>JS Frameworks</h3>
+                  <ul>
+                    <li class="no">Node toolchain &amp; config sprawl</li>
+                    <li class="no">Hydration &amp; runtime JS by default</li>
+                    <li class="no">Lockfile churn &amp; upgrades</li>
+                    <li class="no">Heavy build pipelines</li>
+                  </ul>
+                </div>
+                <div class="compare-col">
+                  <h3>Hand-rolled Scripts</h3>
+                  <ul>
+                    <li class="no">You write the whole generator</li>
+                    <li class="no">No themes, no components, no routing</li>
+                    <li class="no">Fragile, hard to maintain</li>
+                    <li class="no">No documentation mode</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="cta-section">
+            <div class="section-wrap">
+              <div class="cta-box">
+                <span class="section-tag">Get Started</span>
+                <h2>Start building in minutes.</h2>
+                <p>Install the CLI, scaffold a project, and ship your first site — all without leaving your terminal.</p>
+                <div class="cta-actions">
+                  <a href="/docs/" class="btn btn-primary btn-lg">Read the Docs &rarr;</a>
+                  <a href="https://github.com/runvil/runvil" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">Star on GitHub</a>
+                </div>
+                <p class="cta-meta">Go 1.21+ &middot; MIT License &middot; macOS &middot; Linux &middot; Windows</p>
+              </div>
+            </div>
+          </section>
+      style: |
+        /* ── Hero ─────────────────────────────────────── */
+        .hero {
+          position: relative;
+          padding: 7rem 2rem 5rem;
+          overflow: hidden;
+          background-color: var(--base-1);
+        }
+        .hero-glow {
+          position: absolute;
+          inset: 0;
+          background:
+            radial-gradient(ellipse 60% 50% at 15% 30%, rgba(0,200,83,0.12) 0%, transparent 70%),
+            radial-gradient(ellipse 50% 40% at 85% 70%, rgba(92,255,142,0.07) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .hero-inner {
+          position: relative;
+          z-index: 1;
+          max-width: var(--max-width);
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: center;
+        }
+        .badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.3rem 0.85rem;
+          border-radius: 99px;
+          font-size: 0.78rem;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: var(--primary);
+          background: rgba(0,200,83,0.1);
+          border: 1px solid rgba(0,200,83,0.25);
+          margin-bottom: 1.5rem;
+        }
+        .badge-dot {
+          width: 0.45rem;
+          height: 0.45rem;
+          border-radius: 50%;
+          background: var(--primary);
+          box-shadow: 0 0 8px var(--primary);
+          animation: pulse 2.4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .hero-title {
+          font-family: 'Outfit', sans-serif;
+          font-size: clamp(2.4rem, 5vw, 3.6rem);
+          font-weight: 800;
+          line-height: 1.1;
+          letter-spacing: -0.04em;
+          margin: 0 0 1.25rem;
+          background: linear-gradient(135deg, var(--base-1-content) 40%, var(--primary));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .hero-subtitle {
+          font-size: 1.1rem;
+          line-height: 1.65;
+          color: var(--base-2-content);
+          margin: 0 0 2.25rem;
+          max-width: 480px;
+        }
+        .hero-cta {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+        }
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          padding: 0.75rem 1.6rem;
+          font-family: inherit;
+          font-weight: 600;
+          font-size: 0.95rem;
+          border-radius: 8px;
+          text-decoration: none;
+          border: none;
+          cursor: pointer;
+          transition: all var(--transition);
+        }
+        .btn-primary {
+          background: var(--primary);
+          color: var(--primary-content);
+          box-shadow: 0 4px 16px rgba(92,255,142,0.25);
+        }
+        .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 22px rgba(92,255,142,0.4);
+        }
+        .btn-ghost {
+          background: var(--base-2);
+          color: var(--base-1-content);
+          border: 1px solid var(--base-3);
+        }
+        .btn-ghost:hover {
+          background: var(--base-3);
+          border-color: var(--primary);
+          transform: translateY(-2px);
+        }
+        .btn-lg { padding: 0.9rem 2rem; font-size: 1.05rem; }
+        /* ── Hero stats ──────────────────────────────── */
+        .hero-stats {
+          display: grid;
+          grid-template-columns: repeat(4, auto);
+          gap: 2.5rem;
+          margin-top: 2.5rem;
+          padding-top: 1.5rem;
+          border-top: 1px solid var(--base-3);
+          width: max-content;
+        }
+        .stat { display: flex; flex-direction: column; gap: 0.15rem; }
+        .stat-num {
+          font-family: 'Outfit', sans-serif;
+          font-size: 1.5rem;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          color: var(--base-1-content);
+        }
+        .stat-label {
+          font-size: 0.75rem;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          color: var(--base-2-content);
+        }
+        /* ── Terminal ─────────────────────────────────── */
+        .hero-terminal {
+          background: #111113;
+          border: 1px solid #27272b;
+          border-radius: var(--radius-card);
+          overflow: hidden;
+          box-shadow: 0 24px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.03);
+          font-family: 'Fira Code', monospace;
+          font-size: 0.88rem;
+        }
+        .terminal-bar {
+          background: #1a1a1e;
+          padding: 0.65rem 1rem;
+          display: flex;
+          align-items: center;
+          border-bottom: 1px solid #222226;
+        }
+        .dot {
+          width: 10px; height: 10px;
+          border-radius: 50%;
+          margin-right: 5px;
+          display: inline-block;
+        }
+        .dot.r { background: #ff5f57; }
+        .dot.y { background: #febc2e; }
+        .dot.g { background: #28c840; }
+        .terminal-label {
+          margin-left: 0.75rem;
+          color: #555;
+          font-size: 0.75rem;
+        }
+        .terminal-body {
+          padding: 1.25rem 1.5rem;
+          color: #ccc;
+          line-height: 1.75;
+        }
+        .terminal-body p { margin: 0; }
+        .terminal-body .p { color: var(--primary); font-weight: bold; margin-right: 0.5rem; }
+        .terminal-body .dim { color: #555; }
+        .terminal-body .ok { color: #5cff8e; }
+        .terminal-body .cursor {
+          display: inline-block;
+          color: var(--primary);
+          animation: blink 1s steps(2, start) infinite;
+        }
+        @keyframes blink {
+          to { visibility: hidden; }
+        }
+        /* ── Social proof ─────────────────────────────── */
+        .social-proof {
+          background: var(--base-2);
+          border-top: 1px solid var(--base-3);
+          border-bottom: 1px solid var(--base-3);
+        }
+        .proof-inner {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 2rem;
+          padding-top: 2.5rem;
+          padding-bottom: 2.5rem;
+          text-align: center;
+        }
+        .proof-item { display: flex; flex-direction: column; gap: 0.25rem; }
+        .proof-num {
+          font-family: 'Outfit', sans-serif;
+          font-size: 1.9rem;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          color: var(--primary);
+        }
+        .proof-label {
+          font-size: 0.8rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: var(--base-2-content);
+        }
+        /* ── Shared section layout ────────────────────── */
+        .section-wrap {
+          max-width: var(--max-width);
+          margin: 0 auto;
+          padding: 0 2rem;
+        }
+        .section-head {
+          text-align: center;
+          margin-bottom: 3.5rem;
+          max-width: 680px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .section-head h2, .showcase-text h2, .cta-box h2 {
+          font-family: 'Outfit', sans-serif;
+          font-size: clamp(1.8rem, 4vw, 2.5rem);
+          font-weight: 700;
+          letter-spacing: -0.03em;
+          margin: 0 0 1rem;
+        }
+        .section-head p, .showcase-text p, .cta-box p {
+          font-size: 1.05rem;
+          color: var(--base-2-content);
+          line-height: 1.6;
+          margin: 0;
+        }
+        .section-tag {
+          display: inline-block;
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--primary);
+          margin-bottom: 0.75rem;
+        }
+        .section-head .section-tag { margin-bottom: 0.5rem; }
+        /* ── Features ─────────────────────────────────── */
+        .features {
+          padding: 6rem 2rem;
+          background: var(--base-2);
+          border-top: 1px solid var(--base-3);
+          border-bottom: 1px solid var(--base-3);
+        }
+        .features-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 1.5rem;
+        }
+        .feat-card {
+          background: var(--base-1);
+          border: 1px solid var(--base-3);
+          border-radius: var(--radius-card);
+          padding: 2rem 1.75rem;
+          transition: all var(--transition);
+        }
+        .feat-card:hover {
+          transform: translateY(-4px);
+          border-color: var(--primary);
+          box-shadow: 0 8px 24px rgba(0,200,83,0.07);
+        }
+        .feat-icon {
+          width: 3rem;
+          height: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          margin-bottom: 1.1rem;
+          color: var(--primary);
+          background: linear-gradient(135deg, rgba(0,200,83,0.14), rgba(92,255,142,0.05));
+          border: 1px solid rgba(0,200,83,0.25);
+        }
+        .feat-icon svg {
+          width: 1.4rem;
+          height: 1.4rem;
+        }
+        .feat-link {
+          display: inline-block;
+          margin-top: 1.1rem;
+          font-size: 0.88rem;
+          font-weight: 600;
+          color: var(--primary);
+          text-decoration: none;
+          transition: all var(--transition);
+        }
+        .feat-link:hover { color: var(--base-1-content); text-decoration: underline; }
+        .feat-card h3 {
+          font-family: 'Outfit', sans-serif;
+          font-size: 1.15rem;
+          font-weight: 700;
+          margin: 0 0 0.6rem;
+        }
+        .feat-card p {
+          font-size: 0.92rem;
+          color: var(--base-2-content);
+          line-height: 1.55;
+          margin: 0;
+        }
+        .feat-card code {
+          font-family: 'Fira Code', monospace;
+          font-size: 0.85em;
+          background: var(--base-3);
+          padding: 0.1em 0.35em;
+          border-radius: 3px;
+        }
+        /* ── Showcase ─────────────────────────────────── */
+        .showcase { padding: 6rem 2rem; }
+        .showcase-inner {
+          display: grid;
+          grid-template-columns: 1fr 1.1fr;
+          gap: 4rem;
+          align-items: center;
+        }
+        .check-list {
+          list-style: none;
+          padding: 0;
+          margin: 1.5rem 0 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.65rem;
+        }
+        .check-list li {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          font-size: 0.95rem;
+          color: var(--base-1-content);
+        }
+        .check-list li::before {
+          content: '✓';
+          color: var(--primary);
+          font-weight: 700;
+          font-size: 0.9rem;
+          flex-shrink: 0;
+        }
+        .showcase-text code {
+          font-family: 'Fira Code', monospace;
+          font-size: 0.85em;
+          background: var(--base-3);
+          padding: 0.1em 0.35em;
+          border-radius: 3px;
+        }
+        .showcase-codes {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+        }
+        .code-card {
+          background: #111113;
+          border: 1px solid #27272b;
+          border-radius: var(--radius-card);
+          overflow: hidden;
+          box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+        }
+        .code-card-bar {
+          background: #1a1a1e;
+          padding: 0.55rem 1.25rem;
+          border-bottom: 1px solid #222226;
+        }
+        .cf {
+          font-family: 'Fira Code', monospace;
+          font-size: 0.78rem;
+          color: #555;
+        }
+        .code-body {
+          margin: 0;
+          padding: 1.5rem;
+          overflow-x: auto;
+          font-family: 'Fira Code', monospace;
+          font-size: 0.84rem;
+          line-height: 1.65;
+          color: #ccc;
+        }
+        .code-body code { background: none; padding: 0; font-size: inherit; }
+        .ck { color: #f87171; }
+        .cv { color: #86efac; }
+        .cc { color: #4a4a55; font-style: italic; }
+        /* ── Compare ───────────────────────────────────── */
+        .compare { padding: 6rem 2rem; }
+        .compare-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1.5rem;
+        }
+        .compare-col {
+          background: var(--base-1);
+          border: 1px solid var(--base-3);
+          border-radius: var(--radius-card);
+          padding: 2rem 1.75rem;
+          transition: all var(--transition);
+        }
+        .compare-col:hover { border-color: var(--base-3-content); }
+        .compare-col h3 {
+          font-family: 'Outfit', sans-serif;
+          font-size: 1.1rem;
+          font-weight: 700;
+          margin: 0 0 1.25rem;
+        }
+        .compare-col ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        .compare-col li {
+          font-size: 0.92rem;
+          line-height: 1.5;
+          color: var(--base-2-content);
+          padding-left: 1.5rem;
+          position: relative;
+        }
+        .compare-col li::before {
+          position: absolute;
+          left: 0;
+          top: 0.1rem;
+          font-weight: 700;
+          font-size: 0.85rem;
+        }
+        .compare-col li.yes::before { content: '✓'; color: var(--primary); }
+        .compare-col li.no::before { content: '✕'; color: var(--error); }
+        .compare-col code {
+          font-family: 'Fira Code', monospace;
+          font-size: 0.85em;
+          background: var(--base-3);
+          padding: 0.1em 0.35em;
+          border-radius: 3px;
+        }
+        .runvil-col {
+          border-color: rgba(0,200,83,0.4);
+          box-shadow: 0 8px 28px rgba(0,200,83,0.08);
+        }
+        .runvil-col h3 { color: var(--primary); }
+        .runvil-col li { color: var(--base-1-content); }
+        /* ── CTA ──────────────────────────────────────── */
+        .cta-section {
+          padding: 7rem 2rem;
+          background: var(--base-2);
+          border-top: 1px solid var(--base-3);
+        }
+        .cta-box {
+          max-width: 720px;
+          margin: 0 auto;
+          text-align: center;
+          background: linear-gradient(160deg, rgba(0,200,83,0.12), rgba(92,255,142,0.03));
+          border: 1px solid rgba(0,200,83,0.25);
+          border-radius: var(--radius-card);
+          padding: 4rem 3rem;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+        }
+        .cta-box p {
+          margin: 0 0 2.25rem;
+          max-width: 480px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .cta-actions {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .cta-meta {
+          margin: 2.25rem 0 0 !important;
+          font-size: 0.82rem;
+          letter-spacing: 0.03em;
+          color: var(--base-3-content) !important;
+          text-transform: uppercase;
+        }
+        /* ── Responsive ───────────────────────────────── */
+        @media (max-width: 900px) {
+          .hero-inner, .showcase-inner {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+          }
+          .hero { padding: 5rem 2rem 4rem; }
+          .hero-subtitle { max-width: 100%; }
+          .hero-cta { justify-content: flex-start; }
+          .proof-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+          .compare-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 560px) {
+          .hero-cta { flex-direction: column; }
+          .btn { justify-content: center; }
+          .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; width: 100%; }
+          .cta-box { padding: 3rem 1.5rem; }
+        }
+
+    - name: NotFound
+      body: |
+        <div class="nf-wrap">
+          <p class="nf-code">404</p>
+          <h1 class="nf-title">Page not found</h1>
+          <p class="nf-sub">The page you are looking for does not exist or has been moved.</p>
+          <a href="/" class="btn btn-primary">Back to Home &rarr;</a>
+        </div>
+      style: |
+        .nf-wrap {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 10rem 2rem;
+          flex: 1;
+        }
+        .nf-code {
+          font-family: 'Outfit', sans-serif;
+          font-size: 7rem;
+          font-weight: 800;
+          line-height: 1;
+          margin: 0 0 1rem;
+          color: var(--primary);
+          opacity: 0.5;
+        }
+        .nf-title {
+          font-family: 'Outfit', sans-serif;
+          font-size: 2rem;
+          font-weight: 700;
+          margin: 0 0 0.75rem;
+        }
+        .nf-sub {
+          font-size: 1rem;
+          color: var(--base-2-content);
+          margin: 0 0 2.5rem;
+        }
+        .nf-wrap .btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          padding: 0.75rem 1.6rem;
+          font-family: inherit;
+          font-weight: 600;
+          font-size: 0.95rem;
+          border-radius: 8px;
+          text-decoration: none;
+          border: none;
+          cursor: pointer;
+          transition: all var(--transition);
+        }
+        .nf-wrap .btn-primary {
+          background: var(--primary);
+          color: var(--primary-content);
+          box-shadow: 0 4px 16px rgba(92,255,142,0.25);
+        }
+        .nf-wrap .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 22px rgba(92,255,142,0.4);
+        }
+
+  pages:
+    - path: "/"
+      layout: main
+      root: Landing
+      title: Runvil — A Meta-Framework Written in Go
+    - path: "/404.html"
+      layout: main
+      root: NotFound
+      title: "404 — Page Not Found"
