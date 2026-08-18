@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <meta name="description" content="Runvil composes modules sourced across multiple ecosystems into one cohesive, high-performance foundation for building applications in Go."/>
-<title>Runvil — A Meta-Framework Written in Go</title>
+<title>404 — Runvil — A Meta-Framework Written in Go</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 32 32&#39;%3E%3Crect width=&#39;32&#39; height=&#39;32&#39; rx=&#39;7&#39; fill=&#39;%230b58a1&#39;/%3E%3Cpath d=&#39;M9 22 L9 10 L13 10 L13 18 L19 18 L19 10 L23 10 L23 22 Z&#39; fill=&#39;%23fff&#39;/%3E%3C/svg%3E"/>
 <link rel="stylesheet" href="/assets/style.css"/>
 <style>:root{--base-1: #fdfdfb;--base-1-content: #1a1a1a;--base-2: #f5f2eb;--base-2-content: #666;--base-3: #efece4;--base-3-content: #4a4a4a;--primary: #0b58a1;--primary-content: #ffffff;--secondary: #6b7280;--secondary-content: #ffffff;--accent: #b45309;--accent-content: #ffffff;--ghost: #e9e6dc;--ghost-content: #666;--neutral: #e3e0d8;--neutral-content: #666;--success: #15803d;--success-content: #ffffff;--info: #0369a1;--info-content: #ffffff;--warning: #b45309;--warning-content: #ffffff;--error: #b91c1c;--error-content: #ffffff;}:root[data-theme="dark"]{--base-1: #17171a;--base-1-content: #e6e4dd;--base-2: #202024;--base-2-content: #9a968b;--base-3: #2a2a30;--base-3-content: #c6c2b8;--primary: #7ab4ef;--primary-content: #0b0e14;--secondary: #8b8f9c;--secondary-content: #0e0e11;--accent: #f0b429;--accent-content: #241a00;--ghost: #26262b;--ghost-content: #9a968b;--neutral: #2e2e34;--neutral-content: #9a968b;--success: #4ade80;--success-content: #0b1f10;--info: #60a5fa;--info-content: #0a1628;--warning: #fbbf24;--warning-content: #241a00;--error: #f87171;--error-content: #260a0a;}@media (prefers-color-scheme: dark){:root:not([data-theme]){--base-1: #17171a;--base-1-content: #e6e4dd;--base-2: #202024;--base-2-content: #9a968b;--base-3: #2a2a30;--base-3-content: #c6c2b8;--primary: #7ab4ef;--primary-content: #0b0e14;--secondary: #8b8f9c;--secondary-content: #0e0e11;--accent: #f0b429;--accent-content: #241a00;--ghost: #26262b;--ghost-content: #9a968b;--neutral: #2e2e34;--neutral-content: #9a968b;--success: #4ade80;--success-content: #0b1f10;--info: #60a5fa;--info-content: #0a1628;--warning: #fbbf24;--warning-content: #241a00;--error: #f87171;--error-content: #260a0a;}}</style><script>(function(){var k="runvil-theme",d="auto",t=d;try{t=localStorage.getItem(k)||d}catch(e){}var m=window.matchMedia('(prefers-color-scheme: dark)');function apply(){var dark=t==='dark'||(t==='auto'&&m.matches);var r=document.documentElement;r.dataset.theme=dark?'dark':'light';r.style.colorScheme=dark?'dark':'light';var meta=document.querySelector('meta[name="color-scheme"]');if(meta)meta.content=dark?'dark':'light'}apply();if(m.addEventListener){m.addEventListener('change',function(){if(t==='auto')apply()})}window.runvilTheme={get:function(){return t},set:function(x){t=x;try{localStorage.setItem(k,x)}catch(e){}apply()},toggle:function(){var dark=t==='dark'||(t==='auto'&&m.matches);window.runvilTheme.set(dark?'light':'dark')}};document.addEventListener('click',function(e){var el=e.target&&e.target.closest?e.target.closest('[data-theme-toggle]'):null;if(el)window.runvilTheme.toggle()})})();</script>
@@ -18,57 +18,10 @@
   </nav>
 </header>
 <main>
-<section class="hero" data-rv-component="hero">
-  <h1>A meta-framework, <span>written in Go</span>.</h1>
-  <p class="tagline">Runvil composes modules sourced across multiple ecosystems and repositories into one cohesive, high-performance foundation for building web services, CLI tools, background workers, and desktop applications.</p>
-  <p class="cta">
-    <a class="primary" href="/docs/">Read the documentation</a>
-    <a class="secondary" href="https://github.com/runvil">Browse the code</a>
-  </p>
-</section>
-<section data-rv-component="features">
-  <h2>Why Runvil</h2>
-  <ul class="features">
-    <li><strong>Meta-framework by design</strong> — integrates what other ecosystems do well instead of re-implementing it.</li><li><strong>Stdlib-first</strong> — argument parsing, logging, and configuration come from the Go standard library.</li><li><strong>Safe by design</strong> — Go&#39;s memory safety, no <code>unsafe</code>, no manual memory management.</li><li><strong>Spec-driven</strong> — every component ships with a formal specification describing requirements and conventions.</li><li><strong>Dogfooded</strong> — Runvil&#39;s own tooling and websites are built with Runvil.</li>
-  </ul>
-</section>
-<section data-rv-component="repos">
-  <h2>Repositories</h2>
-  <div class="grid">
-    
-    <a class="card" href="https://github.com/runvil/framework">
-      <h3>framework</h3>
-      <p>The meta-framework: integrated <code>cli</code> and <code>web</code> packages.</p>
-    </a>
-    
-    <a class="card" href="https://github.com/runvil/libs">
-      <h3>libs</h3>
-      <p>Shared, reusable libraries: <code>core</code> and <code>term</code>.</p>
-    </a>
-    
-    <a class="card" href="https://github.com/runvil/runvil">
-      <h3>runvil</h3>
-      <p>The developer tool for scaffolding, testing, and project information.</p>
-    </a>
-    
-    <a class="card" href="https://github.com/runvil/mdbind">
-      <h3>mdbind</h3>
-      <p>The site builder: Markdown folders into book-shaped static websites.</p>
-    </a>
-    
-    <a class="card" href="https://github.com/runvil/docs">
-      <h3>docs</h3>
-      </a><p><a class="card" href="https://github.com/runvil/docs">This ecosystem&#39;s website — </a><a href="/docs/">read it online</a>.</p>
-    
-    
-  </div>
-</section>
-<section data-rv-component="start">
-  <h2>Getting started</h2>
-  <p>Scaffold a new Runvil project in seconds with the developer tool.</p>
-  <pre>go install github.com/runvil/runvil/cmd/runvil@v0.1.0
-runvil new hello --module example.com/hello
-cd hello &amp;&amp; runvil test</pre>
+<section class="nf" data-rv-component="notfound">
+  <h1>404 — page not found</h1>
+  <p>The page you are looking for does not exist.</p>
+  <p class="cta"><a class="primary" href="/">Back home</a></p>
 </section>
 </main>
 <footer data-rv-component="footer">
