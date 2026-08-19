@@ -5,8 +5,6 @@
 | SpecID      | RVG-LNDGP                                   |
 | Title       | Runvil Landing Page                         |
 | Status      | Draft                                       |
-| Last updated | 2026-08-18                                  |
-| Changes      | initial specification of the new landing page using ssg.yaml; design upgrade pass (enhanced hero, social proof band, SVG feature icons, comparison section, dual-mode code showcase, gradient CTA) |
 | Date        | 2026-08-18                                  |
 | Author      | Runvil Contributors                         |
 | Domain      | Web — Landing Page                          |
