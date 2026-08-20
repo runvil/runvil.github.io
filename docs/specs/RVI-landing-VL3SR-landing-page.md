@@ -2,7 +2,7 @@
 
 | Field       | Value                                       |
 | ----------- | ------------------------------------------- |
-| SpecID      | RVG-LNDGP                                   |
+| SpecID      | RVI-VL3SR                                   |
 | Title       | Runvil Landing Page                         |
 | Status      | Draft                                       |
 | Date        | 2026-08-18                                  |
@@ -22,7 +22,7 @@ The current landing page is generated as a 1-page book using `mdbind` chapter la
 - G1 — Create a modern, aesthetic landing page with dark/light mode support using custom properties.
 - G2 — Present clear product values: Go native speed, Declarative SSG, Scoped CSS, and Book Builder.
 - G3 — Provide clear getting started instructions and CTAs for repositories and documentation.
-- G4 — Built declaratively using the framework's native `ssg.yaml` configuration.
+- G4 — Built declaratively using the framework's native `ssg:` configuration in `runvil.yaml` (`project.kind: site`, `output: site`).
 
 ## 4. Non-Goals
 
@@ -33,7 +33,7 @@ The current landing page is generated as a 1-page book using `mdbind` chapter la
 
 | ID         | Requirement                                                       | Priority |
 | ---------- | ----------------------------------------------------------------- | -------- |
-| LND-SSG-010 | The landing page must be generated using `ssg.yaml` (declarative SSG mode) instead of `manuscript/` (book mode). | Must |
+| LND-SSG-010 | The landing page must be generated using the `ssg:` configuration in `runvil.yaml` (declarative SSG mode) instead of `manuscript/` (book mode). | Must |
 | LND-HERO-020 | Display a premium Hero section with a bold headline ("Runvil"), a descriptive subtitle, a call-to-action to "/docs/" (Documentation) and a secondary action to the GitHub repository, along with a code install block. | Must |
 | LND-FEAT-030 | Display a responsive grid of 4 core features: Go Native, Declarative SSG, Scoped CSS, and Book Builder, with clean layouts and icons. | Must |
 | LND-CODE-040 | Include an interactive-looking code preview component showing component composition (e.g. a simple `<Header>` or custom layout) to demonstrate how Runvil works. | Must |
@@ -55,7 +55,7 @@ The current landing page is generated as a 1-page book using `mdbind` chapter la
 
 ## 7. Success Criteria
 
-- S1 — Running `runvil build` in `runvil.github.io/` produces `index.html`, `404.html`, and `assets/style.css` matching the design.
+- S1 — Running `runvil build` in `runvil.github.io/` produces `site/index.html`, `site/404.html`, and `site/assets/style.css` matching the design.
 - S2 — Theme switcher toggles light/dark modes correctly and colors adjust automatically.
 - S3 — Elements scale responsively on mobile viewports.
 - S4 — The page contains a social proof band, SVG-icon feature cards, a dual-mode code showcase, and a comparison section.
@@ -64,5 +64,5 @@ The current landing page is generated as a 1-page book using `mdbind` chapter la
 
 | SpecID    | Title                                           |
 | --------- | ----------------------------------------------- |
-| [RVF-5K7PZ](https://github.com/runvil/framework/blob/main/docs/specs/RVF-5K7PZ-web-theming-system.md) | UI Theming System |
-| [RVF-PN41Q](https://github.com/runvil/framework/blob/main/docs/specs/RVF-PN41Q-static-site-generator.md) | Static Site Generator |
+| [RVF-V0TMZ](https://github.com/runvil/framework/blob/main/docs/specs/RVF-ui-V0TMZ-web-theming-system.md) | UI Theming System |
+| [RVF-PT8OD](https://github.com/runvil/framework/blob/main/docs/specs/RVF-ssg-PT8OD-static-site-generator.md) | Static Site Generator |

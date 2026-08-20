@@ -1,7 +1,10 @@
+project:
+  name: runvil.github.io
+  kind: site
 title: Runvil — A Meta-Framework Written in Go
 author: Runvil Contributors
 base: /
-output: .
+output: site
 theme:
   default: auto
 
