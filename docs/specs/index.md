@@ -4,7 +4,7 @@ This directory holds the formal specifications for the Runvil landing page.
 
 | SpecID    | Title                                      | Status | Depends On |
 | --------- | ------------------------------------------ | ------ | ---------- |
-| [RVI-VL3SR](./RVI-landing-VL3SR-landing-page.md) | Runvil Landing Page Specification          | Draft  | — |
+| [RVI-VL3SR](./RVI-LANDING-VL3SR-landing-page.md) | Runvil Landing Page Specification          | Draft  | — |
 
 ## Conventions
 

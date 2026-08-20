@@ -64,5 +64,5 @@ The current landing page is generated as a 1-page book using `mdbind` chapter la
 
 | SpecID    | Title                                           |
 | --------- | ----------------------------------------------- |
-| [RVF-V0TMZ](https://github.com/runvil/framework/blob/main/docs/specs/RVF-ui-V0TMZ-web-theming-system.md) | UI Theming System |
-| [RVF-PT8OD](https://github.com/runvil/framework/blob/main/docs/specs/RVF-ssg-PT8OD-static-site-generator.md) | Static Site Generator |
+| [RVF-V0TMZ](https://github.com/runvil/framework/blob/main/docs/specs/RVF-UI-V0TMZ-web-theming-system.md) | UI Theming System |
+| [RVF-PT8OD](https://github.com/runvil/framework/blob/main/docs/specs/RVF-SSG-PT8OD-static-site-generator.md) | Static Site Generator |
